@@ -13,3 +13,6 @@ def maxsumcontinuoussubarray(arr,n):
 n=int(input())
 arr=list(map(int,input().split()))
 print(maxsumcontinuoussubarray(arr,n))
+
+#time complexity=O(n)
+#space=O(1)
