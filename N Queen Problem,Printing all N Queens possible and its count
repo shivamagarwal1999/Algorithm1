@@ -1,0 +1,72 @@
+def getboard():
+    for i in range(n):
+        nlist=[]
+        for j in range(n):
+            nlist.append(0)
+        board.append(nlist)
+
+def printboard():
+    for i in range(n):
+        for j in range(n):
+            print(board[i][j],end=" ")
+        print("")
+            
+def is_safe(row,col, board):
+    for i in range(n):
+        if board[row][i]==1:
+            return False
+    for j in range(n):
+        if board[j][col]==1:
+            return False
+    i=row-1
+    j=col-1
+    while(i>=0 and j>=0):
+        if board[i][j]==1:
+            return False
+        i-=1
+        j-=1
+    
+    i=row-1
+    j=col+1
+    while(i>=0 and j<n):
+        if board[i][j]==1:
+            return False
+        i-=1
+        j+=1
+    
+    i=row+1
+    j=col-1
+    while(i<n and j>=0):
+        if board[i][j]==1:
+            return False
+        i+=1
+        j-=1
+        
+    i=row+1
+    j=col+1
+    while(i<n and j<n):
+        if board[i][j]==1:
+            return False
+        i+=1
+        j+=1
+    return True
+    
+def Put(n, count, board):
+    global ans
+    if count==n:
+        ans+=1
+        print()
+        printboard()
+        return True
+    for j in range(n):
+        if is_safe(count,j, board):
+            board[count][j]=1
+            Put(n,count+1, board)
+            board[count][j]=0
+n=int(input())
+board=[]
+getboard()
+ans = 0
+Put(n,0,board)
+#print()
+print("number of solutions:",ans)
