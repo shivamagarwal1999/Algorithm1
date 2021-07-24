@@ -1,0 +1,20 @@
+def sortar(arr,n):
+    temp=list(range(n))
+    j=0
+    if n==0 or n==1:
+        return n
+    for i in range(0,len(arr)-1):
+        if arr[i]!=arr[i+1]:
+            temp[j]=arr[i]
+            j+=1
+    temp[j]=arr[n-1]
+    j+=1
+    for i in range(0,j):
+        arr[i]=temp[i]
+    return j
+arr=[1,2,2,2,3,4,5,5,6,6]
+n=len(arr)
+
+n=sortar(arr,n)
+for i in range(n):
+    print(arr[i],end=" ")
