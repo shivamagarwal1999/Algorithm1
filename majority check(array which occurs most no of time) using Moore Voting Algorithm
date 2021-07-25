@@ -1,0 +1,25 @@
+def can(arr):
+    mj=0
+    c=1
+    for i in range(len(arr)):
+        if arr[mj]==arr[i]:
+            c+=1
+        else:
+            c-=1
+        if c==0:
+            mj=i
+            c=1
+    return arr[mj]
+
+def majoritycheck(arr,cand):
+    c=0
+    for i in range(len(arr)):
+        if arr[i]==cand:
+            c+=1
+    if c>(len(arr)/2):
+        print(cand)
+    else:
+        print("not")
+arr=list(input())
+cand=can(arr)
+majoritycheck(arr,cand)
