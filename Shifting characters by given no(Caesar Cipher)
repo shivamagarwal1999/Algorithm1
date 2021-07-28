@@ -1,0 +1,12 @@
+st=input()
+shift=int(input())
+re=""
+for i in range(len(st)):
+    if st[i].isalpha():
+        if ord(st[i])>=65 and ord(st[i])<=90:
+            re+=chr(ord(st[i])-26 + shift)
+        elif ord(st[i])>=97 and ord(st[i])<=122:
+            re+=chr(ord(st[i])-26 + shift)
+    else:
+        re+=st[i]
+print(re)
