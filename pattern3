@@ -1,0 +1,7 @@
+n=int(input())
+mystr="abcdefghijklmnopqrstuvwxyz"[0:n]
+for i in range(n-1,-n,-1):
+    x=abs(i)
+    if x>=0:
+        line=mystr[n:x:-1]+mystr[x:n]
+        print("--"*x+ "-".join(line)+"--"*x)
