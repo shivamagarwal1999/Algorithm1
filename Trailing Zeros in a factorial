@@ -1,0 +1,20 @@
+def fact(n):
+    if n==1:
+        return n
+    else:
+        return (n*fact(n-1))
+n=10
+m=fact(n)
+a=[]
+c=0
+while(m):
+    r=m%10
+    if r==0:
+        a.append(r)
+    else:
+        break
+    m//=10
+for i in a:
+    if i==0:
+        c+=1
+print(fact(n),c)
