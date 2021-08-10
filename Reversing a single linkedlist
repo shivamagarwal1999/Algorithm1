@@ -24,7 +24,7 @@ class Linkedlist:
         while(temp is not None):
             print(temp.data,"-->",end=" ")
             temp=temp.next
-        print()
+        print("NULL")
 if __name__=='__main__':
     llist=Linkedlist()
     llist.push(10)
