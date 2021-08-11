@@ -1,0 +1,49 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class Linkedlist:
+    def __init__(self):
+        self.head=None
+    def push(self, newData):
+        newNode = Node(newData)
+        if self.head is None:
+            self.head = newNode
+            return
+ 
+        last = self.head
+        while last.next:
+            last = last.next
+        last.next = newNode
+    def printlist(self):
+        temp=self.head
+        while(temp is not None):
+            print(temp.data,"-->",end="")
+            temp=temp.next
+        print("NULL")
+def removeNthFromEnd(head,k):
+    first=head
+    second=head
+    count=1
+    while count<=k:
+        second=second.next
+        count+=1
+    if second is None:
+        head.value=head.next.value
+        head.next=head.next.next
+        return
+    while second.next is not None:
+        first=first.next
+        second=second.next
+    first.next=first.next.next
+    
+if __name__=="__main__":
+    listc=Linkedlist()
+    for i in range(9):
+        listc.push(i)
+    listc.printlist()
+    k=3
+    removeNthFromEnd(listc.head,k)
+    listc.printlist()
+    
+    
