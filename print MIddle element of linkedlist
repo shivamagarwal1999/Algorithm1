@@ -1,0 +1,41 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class Linkedlist:
+    def __init__(self):
+        self.head=None
+    def push(self,new_data):
+        new_node=Node(new_data)
+        new_node.next=self.head
+        self.head=new_node
+    '''def reversed(self):
+        prev=None
+        curr=self.head
+        while(curr is not None):
+            next=curr.next
+            curr.next=prev
+            prev=curr
+            curr=next
+        self.head=prev'''
+            
+    def printlist(self):
+        temp=self.head
+        while(temp is not None):
+            print(temp.data,"-->",end="")
+            temp=temp.next
+        print("NULL")
+    def MiddleNode(self):
+        slow=self.head
+        fast=self.head
+        while fast and fast.next:
+            slow=slow.next
+            fast=fast.next.next
+        print(slow.data)
+if __name__=="__main__":
+    llist=Linkedlist()
+    for i in range(9):
+        llist.push(i)
+    llist.printlist()
+    #llist.reversed()
+    llist.MiddleNode()
