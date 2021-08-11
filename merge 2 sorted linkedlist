@@ -1,0 +1,71 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class Linkedlist:
+    def __init__(self):
+        self.head=None
+    def push(self, newData):
+        newNode = Node(newData)
+        if self.head is None:
+            self.head = newNode
+            return
+ 
+        last = self.head
+        while last.next:
+            last = last.next
+ 
+        last.next = newNode
+    '''def reversed(self):
+        prev=None
+        curr=self.head
+        while(curr is not None):
+            next=curr.next
+            curr.next=prev
+            prev=curr
+            curr=next
+        self.head=prev'''
+            
+            
+    def printlist(self):
+        temp=self.head
+        while(temp is not None):
+            print(temp.data,"-->",end="")
+            temp=temp.next
+        print("NULL")
+    '''def MiddleNode(self):
+        slow=self.head
+        fast=self.head
+        while fast and fast.next:
+            slow=slow.next
+            fast=fast.next.next
+        print(slow.data)'''
+def mergedlist(heada,headb):
+    dummy=Node(0)
+    tail=dummy
+    while True:
+        if heada is None:
+            tail.next=headb
+            break
+        if headb is None:
+            tail.next=heada
+            break
+        if heada.data<=headb.data:
+            tail.next=heada
+            heada=heada.next
+        else:
+            tail.next=headb
+            headb=headb.next
+        tail=tail.next
+    return dummy.next
+if __name__=="__main__":
+    lista=Linkedlist()
+    listb=Linkedlist()
+    listc=Linkedlist()
+    for i in range(9):
+        lista.push(i)
+        listb.push(i)
+    lista.printlist()
+    listb.printlist()
+    listc.head=mergedlist(lista.head,listb.head)
+    listc.printlist()
