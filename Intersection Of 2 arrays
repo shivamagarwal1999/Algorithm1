@@ -1,0 +1,21 @@
+arr1=[10,20,30,40,20]
+arr2=[10,20,50,60,30,20]
+arr1=sorted(arr1)
+arr2=sorted(arr2)
+a3=[]
+def intersect(arr1,arr2):
+    m=len(arr1)
+    n=len(arr2)
+    i=j=0
+    while i<m and j<n:
+        if arr1[i]<arr2[j]:
+            i+=1
+        elif arr1[i]>arr2[j]:
+            j+=1
+        else:
+            a3.append(arr2[j])
+            i+=1
+            j+=1
+    return a3
+
+print(intersect(arr1,arr2))
