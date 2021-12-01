@@ -1,0 +1,27 @@
+class Node:
+    def __init__(self,key):
+        self.left=None
+        self.right=None
+        self.data=key
+def isbalanced(node):
+    return height(node)!=-1
+def height(node):
+    if node is None:
+        return 0
+    lheight=height(node.left)
+    if lheight==-1:
+        return -1
+    rheight=height(node.right)
+    if rheight==-1:
+        return -1
+    if abs(rheight - lheight)>1:
+        return -1
+    return 1+ max(lheight,rheight)
+root=Node(1)
+root.left=Node(2)
+root.right=Node(3)
+root.left.right=Node(5)
+root.right.left=Node(4)
+root.left.left=Node(4)
+root.left.right.left=Node(10)
+print(isbalanced(root))
