@@ -1,0 +1,26 @@
+class Node:
+    def __init__(self,data):
+        self.left=None
+        self.right=None
+        self.data=data
+def findmaxutil(root):
+    if root is None:
+        return 0
+    lh=findmaxutil(root.left)
+    rh=findmaxutil(root.right)
+    maxh=max(max(lh,rh)+root.data,root.data)
+    maxt=max(maxh,lh+rh+root.data)
+    findmaxutil.res=max(findmaxutil.res,maxt)
+    return maxh
+def Maxsum(root):
+    findmaxutil.res=float("-inf")
+    findmaxutil(root)
+    return findmaxutil.res
+root=Node(1)
+root.left=Node(2)
+root.right=Node(3)
+root.left.right=Node(5)
+root.right.left=Node(4)
+root.left.left=Node(4)
+root.left.right.left=Node(10)
+print(Maxsum(root))
