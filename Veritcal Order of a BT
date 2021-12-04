@@ -1,0 +1,36 @@
+class Node:
+    def __init__(self,data):
+        self.left=None
+        self.right=None
+        self.data=data
+def findminmax(node, mini,maxi,hd):
+    if node is None:
+        return
+    elif hd<mini[0]:
+        mini[0]=hd
+    elif hd>maxi[0]:
+        maxi[0]=hd
+    findminmax(node.left,mini,maxi,hd-1)
+    findminmax(node.right,mini,maxi,hd+1)
+def printVertical(node,line_no,hd):
+    if node is None:
+        return
+    if hd==line_no:
+        print(node.data,end=" ")
+    printVertical(node.left,line_no,hd-1)
+    printVertical(node.right,line_no,hd+1)
+def VerticalOrder(root):
+    mini=[0]
+    maxi=[0]
+    findminmax(root,mini,maxi,0)
+    for line_no in range(mini[0],maxi[0]+1):
+        printVertical(root,line_no,0)
+        print()
+root=Node(1)
+root.left=Node(2)
+root.right=Node(3)
+root.left.right=Node(5)
+root.right.left=Node(4)
+root.left.left=Node(6)
+root.left.right.left=Node(10)
+VerticalOrder(root)
