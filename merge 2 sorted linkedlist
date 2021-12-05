@@ -15,31 +15,13 @@ class Linkedlist:
         while last.next:
             last = last.next
  
-        last.next = newNode
-    '''def reversed(self):
-        prev=None
-        curr=self.head
-        while(curr is not None):
-            next=curr.next
-            curr.next=prev
-            prev=curr
-            curr=next
-        self.head=prev'''
-            
-            
+        last.next = newNode    
     def printlist(self):
         temp=self.head
         while(temp is not None):
             print(temp.data,"-->",end="")
             temp=temp.next
         print("NULL")
-    '''def MiddleNode(self):
-        slow=self.head
-        fast=self.head
-        while fast and fast.next:
-            slow=slow.next
-            fast=fast.next.next
-        print(slow.data)'''
 def mergedlist(heada,headb):
     dummy=Node(0)
     tail=dummy
