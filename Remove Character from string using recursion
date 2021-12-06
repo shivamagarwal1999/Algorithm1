@@ -1,0 +1,11 @@
+def removechar(string,x):
+    if len(string)==0:
+        return ""
+    if (string[0]==x):
+        return removechar(string[1:],x)
+    return string[0]+removechar(string[1:],x)
+x="a"
+string="HOLLARAJ"
+string=string.lower()
+string=removechar(string,x)
+print(string)
